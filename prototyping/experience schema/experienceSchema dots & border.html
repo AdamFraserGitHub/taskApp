@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+    <head>
+        <title>experience schema 0</title>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                margin: 0px;
+                padding: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>    
+    </body>
+
+    <script>
+        const division = 75
+
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        var scrWidth = canvas.width = window.innerWidth;
+        var scrHeight = canvas.height = window.innerHeight;
+
+        for(var x = 0; x < scrWidth; x += (scrWidth / division)) {
+            for(var y = 0; y < scrHeight; y += (scrWidth / division)) {
+                ctx.fillRect(Math.round(x),Math.round(y),1,1);
+            } 
+        }
+        
+        //draw upper left border
+        ctx.beginPath();
+            var x = scrWidth / 50;
+            var y = scrWidth / 50;
+            ctx.moveTo(x,y * 2);
+            ctx.lineTo(x,y);
+            ctx.lineTo(2*x,y);
+
+            ctx.stroke();
+        ctx.closePath();
+
+        //draw bottom right border
+        ctx.beginPath();
+            var x = scrWidth - (scrWidth / 50);
+            var y = scrHeight - (scrWidth / 50);
+            ctx.moveTo(x - (scrWidth / 50), y);
+            ctx.lineTo(x,y);
+            ctx.lineTo(x,y - (scrWidth / 50));
+
+            ctx.stroke();
+        ctx.closePath();
+
+        //draw bottom left border
+        ctx.beginPath();
+            var x = (scrWidth / 50);
+            var y = scrHeight - (scrWidth / 50);
+            ctx.moveTo(x, y - (scrWidth / 50));
+            ctx.lineTo(x,y);
+            ctx.lineTo(x + (scrWidth / 50),y);
+
+            ctx.stroke();
+        ctx.closePath();
+
+        //draw top right border
+        ctx.beginPath();
+            var x = scrWidth - (scrWidth / 50);
+            var y = (scrWidth / 50);
+            ctx.moveTo(x - (scrWidth / 50), y);
+            ctx.lineTo(x,y);
+            ctx.lineTo(x,y + (scrWidth / 50));
+
+            ctx.stroke();
+        ctx.closePath();
+
+    </script>
+</html>
