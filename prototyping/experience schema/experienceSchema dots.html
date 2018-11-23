@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <head>
+        <title>experience schema 0</title>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                margin: 0px;
+                padding: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>    
+    </body>
+
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        var scrWidth = canvas.width = window.innerWidth;
+        var scrHeight = canvas.height = window.innerHeight;
+
+        for(var x = 0; x < scrWidth; x += (scrWidth / 50)) {
+            for(var y = 0; y < scrHeight; y += (scrWidth / 50)) {
+                ctx.fillRect(Math.round(x),Math.round(y),1,1);
+            } 
+        }
+        
+    </script>
+</html>
